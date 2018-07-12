@@ -8,8 +8,6 @@ var Twitter = require("twitter");
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 var fs= require("fs");
-// console.log(spotify)
-// console.log(client)
 
 // * `my-tweets`
 
@@ -48,34 +46,13 @@ function runApi(command, searchTerm){
     }
 }
 
-// console.log(programToRun)
-// if (programToRun == "my-tweets") {
-//     myTweets()
-// }
 
-// else if (programToRun == "spotify-this-song") {
-//     spotifyThisSong("all the small things")
-// }
-
-// else if (programToRun == "movie-this") {
-//     movieThis()
-
-// }
-
-// else if (programToRun == "do-what-it-says") {
-//     doWhatItSays()
-
-// }
-
-// else {
-//     console.log("please specify a program")
-// }
 
 function myTweets() {
     console.log("runningtwitterprogram")
 }
 
-// need app to be able to pass in a value through terminal
+
 // spotify app section
 function spotifyThisSong(searchTerm) {
 
@@ -90,6 +67,9 @@ function spotifyThisSong(searchTerm) {
             return console.log('Error occurred: ' + err);
         }
         console.log(data.tracks.items[0].artists[0].name);
+        console.log(data.tracks.items[0].name);ListeningStateChangedEvent
+        console.log(data.tracks.items[0].album.name)
+        console.log(data.tracks.items[0].external_urls.spotify);
 
     });
 
@@ -97,7 +77,7 @@ function spotifyThisSong(searchTerm) {
 }
 
 //twitter app section
-//this section works 
+
 
 function myTweets() {
     //Display last 20 Tweets
@@ -140,22 +120,7 @@ function movieThis(searchTerm) {
     // Create an empty variable for holding the movie name
     var movieName = searchTerm;
     
-    // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
-    // for (var i = 2; i < nodeArgs.length; i++) {
     
-    //   if (i > 2 && i < nodeArgs.length) {
-    
-    //     movieName = movieName + "+" + nodeArgs[i];
-    
-    //   }
-    
-    //   else {
-    
-    //     movieName += nodeArgs[i];
-    
-    //   }
-    //}
     
     // Then run a request to the OMDB API with the movie specified
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
